@@ -1,5 +1,22 @@
+port: 8081
+
 server:
-  port: 8081
+  port: ${port}
+
+management:
+  server:
+    port: ${port}
+
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
 
 spring:
   application:
