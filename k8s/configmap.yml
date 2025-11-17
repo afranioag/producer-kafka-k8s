@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: producer-config
+  namespace: production
+data:
+  application-prod.yml: |
+    spring:
+      application:
+        name: csv-producer-service
+      kafka:
+        bootstrap-servers: kafka-service:9092
+        producer:
+          key-serializer: org.apache.kafka.common.serialization.StringSerializer
+          value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+          properties:
+            spring.json.add.type.headers: false
+        properties:
+          acks: all
+          retries: 3
+
+    server:
+      port: 8081
+
+    aws:
+      s3:
+        endpoint: http://localstack-service:4566
+        region: us-east-1
+        bucket-name: csv-bucket
+        access-key: test
+        secret-key: test
+
+    kafka:
+      topic:
+        csv-data: pessoas-topic
+
+    csv:
+      processing:
+        batch-size: 100
+
+    management:
+      endpoints:
+        web:
+          exposure:
+            include: health,metrics,prometheus
+      health:
+        livenessState:
+          enabled: true
+        readinessState:
+          enabled: true
