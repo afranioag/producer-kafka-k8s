@@ -11,7 +11,7 @@ public class ProducerJob {
 
     private final  CadastroService cadastroService;
 
-    @Scheduled(fixedRate = 100)
+    @Scheduled(fixedRate = 5000)
     public void start() {
         cadastroService.startCadastro();
     }

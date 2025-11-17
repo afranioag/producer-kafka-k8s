@@ -4,11 +4,9 @@ server:
 spring:
   application:
     name: pocs
-  profiles:
-    active: dev
 
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka-service:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -20,20 +18,11 @@ spring:
   # Configura��o AWS LocalStack
 aws:
   s3:
-    endpoint: http://localhost:4566/
+    endpoint: http://localstack-service:4566
     region: us-east-1
     bucket-name: csv-bucket
     access-key: test
     secret-key: test
 
-# Configura��o Kafka
-kafka:
-  topic:
-    csv-data: pessoas-topic
-
-# Configura��o de processamento
-csv:
-  processing:
-    batch-size: 100
 
 

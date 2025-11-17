@@ -4,8 +4,6 @@ server:
 spring:
   application:
     name: pocs
-  profiles:
-    active: dev
 
   kafka:
     bootstrap-servers: localhost:9092
@@ -26,14 +24,5 @@ aws:
     access-key: test
     secret-key: test
 
-# Configura��o Kafka
-kafka:
-  topic:
-    csv-data: pessoas-topic
-
-# Configura��o de processamento
-csv:
-  processing:
-    batch-size: 100
 
 
