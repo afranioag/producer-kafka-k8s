@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: apps/v1.1
 kind: Deployment
 metadata:
   name: producer-service
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: producer
-          image: producer-service:latest  # ArgoCD/CI vai atualizar essa tag
+          image: producer-service:1.0.1  # ArgoCD/CI vai atualizar essa tag
           imagePullPolicy: IfNotPresent  # Usar imagem local do Minikube
           ports:
             - containerPort: 8081
