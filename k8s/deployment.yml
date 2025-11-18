@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: producer
-          image: producer-service:1.0.2  # ArgoCD/CI vai atualizar essa tag
+          image: producer-service:latest  # ArgoCD/CI vai atualizar essa tag
           imagePullPolicy: Never  # Usar imagem local do Minikube
           ports:
             - containerPort: 8081
