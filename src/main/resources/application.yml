@@ -34,6 +34,12 @@ spring:
     properties:
       acks: all
       retries: 3
+
+
+# Configura��o Kafka
+kafka:
+  topic:
+    csv-data: pessoas-topic
   # Configura��o AWS LocalStack
 aws:
   s3:
@@ -42,11 +48,6 @@ aws:
     bucket-name: csv-bucket
     access-key: test
     secret-key: test
-
-# Configura��o Kafka
-kafka:
-  topic:
-    csv-data: pessoas-topic
 
 # Configura��o de processamento
 csv:
